@@ -2,22 +2,23 @@
 package laboratoriotp4grupo4;
 
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 
 public class Alumno {
     private int legajo;
     private String apellido;
     private String nombre;
-    private HashSet<Materia> materias;
+    private HashSet<Materia> materias= new HashSet();
 
     public Alumno() {
     }
 
-    public Alumno(int legajo, String apellido, String nombre, HashSet<Materia> materias) {
+    public Alumno(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.materias = materias;
+        
     }
 
     public int getLegajo() {
@@ -51,12 +52,25 @@ public class Alumno {
     public void setMaterias(HashSet<Materia> materias) {
         this.materias = materias;
     }
+    
      public void AgregarMateria(Materia m){
+         boolean x=true;
+         for (Materia aux : materias) {
+             if (m.getIdMateria() == aux.getIdMateria() ) {
+                 JOptionPane.showMessageDialog(null,"ERROR - materia ya registrada");
+                 x=false;
+                 break;
+                }
+         }
+         if (x) {
+             materias.add(m);
+             JOptionPane.showMessageDialog(null,"Materia "+ m.getNombre()+" agregada a "+ nombre);
+         }
          
      }
      
      public int cantidadMaterias(){
-         return 0;
+         return materias.size();
      }
     
     

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="laboratoriotp4grupo4">
+  <ClassDiagramComponents>
+    <Class name="Alumno" package="laboratoriotp4grupo4" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="legajo" type="int" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="materias" type="HashSet&lt;Materia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="legajo"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLegajo" returnType="int" visibility="public"/>
+        <Method name="setLegajo" returnType="void" visibility="public">
+          <Argument type="int" name="legajo"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getMaterias" returnType="HashSet&lt;Materia&gt;" visibility="public"/>
+        <Method name="setMaterias" returnType="void" visibility="public">
+          <Argument type="HashSet&lt;Materia&gt;" name="materias"/>
+        </Method>
+        <Method name="AgregarMateria" returnType="void" visibility="public">
+          <Argument type="Materia" name="m"/>
+        </Method>
+        <Method name="cantidadMaterias" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Colegio" package="laboratoriotp4grupo4" visibility="public" xPosition="427.0" yPosition="480.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Materia" package="laboratoriotp4grupo4" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="idMateria" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="ano" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="idMateria"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="ano"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdMateria" returnType="int" visibility="public"/>
+        <Method name="setIdMateria" returnType="void" visibility="public">
+          <Argument type="int" name="idMateria"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getAno" returnType="int" visibility="public"/>
+        <Method name="setAno" returnType="void" visibility="public">
+          <Argument type="int" name="ano"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="materias" source="laboratoriotp4grupo4.Alumno" target="laboratoriotp4grupo4.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Materia&gt;"/>
+    <UseRelation name="" source="laboratoriotp4grupo4.Colegio" target="laboratoriotp4grupo4.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="laboratoriotp4grupo4.Colegio" target="laboratoriotp4grupo4.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
