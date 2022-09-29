@@ -52,6 +52,6 @@ public class Alumno {
         this.materias = materias;
     }
     
-    public
+    
     
 }
