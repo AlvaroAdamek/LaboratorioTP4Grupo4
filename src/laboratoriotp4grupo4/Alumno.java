@@ -51,7 +51,13 @@ public class Alumno {
     public void setMaterias(HashSet<Materia> materias) {
         this.materias = materias;
     }
-    
+     public void AgregarMateria(Materia m){
+         
+     }
+     
+     public int cantidadMaterias(){
+         return 0;
+     }
     
     
 }
