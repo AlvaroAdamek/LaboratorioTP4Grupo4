@@ -7,6 +7,9 @@ public class Materia {
     private String nombre;
     private int ano;
 
+    public Materia() {
+    }
+
     public Materia(int idMateria, String nombre, int ano) {
         this.idMateria = idMateria;
         this.nombre = nombre;
