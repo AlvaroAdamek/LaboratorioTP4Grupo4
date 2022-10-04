@@ -27,14 +27,9 @@ public class Alumnodata {
     public void guardarAlumno(Alumno alumn) {
         this.alumnos.add(alumn);
     }
- public ArrayList<String> obtenerlista(){
-       ArrayList <String> a= new ArrayList();
-      
-       for (Alumno al : alumnos) {
-           a.add(al.toString());    
-           
-       }
+ public HashSet <Alumno> obtenerlista(){
+       
     
-    return a;
+    return alumnos;
 }
 }

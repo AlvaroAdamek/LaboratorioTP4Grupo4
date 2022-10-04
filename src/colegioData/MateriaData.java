@@ -14,9 +14,11 @@ import laboratoriotp4grupo4.Materia;
  * @author canes
  */
 public class MateriaData {
-    private HashSet<Materia> materias= new HashSet();
+    private HashSet<Materia> materias;
 
     public MateriaData() {
+        this.materias= new HashSet();
+        
     }
 
     public HashSet getMaterias() {
@@ -28,14 +30,9 @@ public class MateriaData {
     }
 
 
-   public ArrayList<String> obtenerlista(){
-       ArrayList <String> m= new ArrayList();
+   public HashSet<Materia> obtenerlista(){
       
-       for (Materia materia : materias) {
-           m.add( materia.getNombre());    
-           
-       }
-    
-    return m;
+         
+    return materias;
 }
 }

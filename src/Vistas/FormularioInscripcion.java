@@ -5,24 +5,22 @@
  */
 package Vistas;
 
-import colegioData.Alumnodata;
-import colegioData.MateriaData;
-
+import static Vistas.FormularioAlumno.alum;
+import static Vistas.FormularioMateria.materiaD;
+import laboratoriotp4grupo4.Alumno;
+import laboratoriotp4grupo4.Materia;
 
 /**
  *
  * @author canes
  */
-public class FormularioInscripcion extends javax.swing.JFrame {
+public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
-   Alumnodata al;
-   MateriaData mat;
     public FormularioInscripcion() {
         initComponents();
-        al= new Alumnodata();
-        mat=new MateriaData();
-        llenarcombox();
-        
+          llenarcomboxAlum();
+                  llenarcomboxMat();
+
     }
 
     /**
@@ -66,7 +64,10 @@ public class FormularioInscripcion extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
 
         jfSalirFI.setText("Salir");
         jfSalirFI.addActionListener(new java.awt.event.ActionListener() {
@@ -153,11 +154,11 @@ public class FormularioInscripcion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jfSalirFIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfSalirFIActionPerformed
-        // TODO add your handling code here:
+        dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jfSalirFIActionPerformed
 
     private void JfInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JfInscribirActionPerformed
-       
+    ((Alumno)jfAlumno.getSelectedItem()).AgregarMateria((Materia)jfMateria.getSelectedItem());
     }//GEN-LAST:event_JfInscribirActionPerformed
 
     private void jfMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfMateriaActionPerformed
@@ -168,53 +169,19 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jfAlumnoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public void llenarcomboxAlum() {
+        for (Alumno alumno : alum.obtenerlista()) {
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormularioInscripcion().setVisible(true);
-            }
-        });}
-      public void llenarcombox(){
-                    
-          for (String m : mat.obtenerlista()) {
-              
-                     jfMateria.addItem(m);
-          }
-          for (String a : al.obtenerlista()) {
-               jfAlumno.addItem(a);
-          }
-      
-      }
-      
-        
-    
+            jfAlumno.addItem(alumno);
+        }
+    }
+    public void llenarcomboxMat() {
+        for (Materia ma : materiaD.obtenerlista()) {
+
+            jfMateria.addItem(ma);
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JfInscribir;
@@ -223,8 +190,8 @@ public class FormularioInscripcion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JComboBox<String> jfAlumno;
-    private javax.swing.JComboBox<String> jfMateria;
+    private javax.swing.JComboBox<Alumno> jfAlumno;
+    private javax.swing.JComboBox<Materia> jfMateria;
     private javax.swing.JButton jfSalirFI;
     // End of variables declaration//GEN-END:variables
 }

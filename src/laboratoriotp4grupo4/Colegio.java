@@ -8,7 +8,7 @@ public class Colegio {
 
 
     public static void main(String[] args) {
-        Materia ingles1 =new Materia(123, "ingles", 1);
+       /* Materia ingles1 =new Materia(123, "ingles", 1);
         Materia matematicas = new Materia(456, "matematicas", 1);
         Materia laboratorio1 = new Materia(789, "laboratorio 1", 1);
         
@@ -27,7 +27,7 @@ public class Colegio {
         
         JOptionPane.showMessageDialog(null,"cantidad de materias para el alumno "+ alum1.getNombre() +" "+ alum1.cantidadMaterias());
         JOptionPane.showMessageDialog(null,"cantidad de materias para el alumno "+ alum2.getNombre() +" "+ alum2.cantidadMaterias());
-        
+        */
     }
     
 }

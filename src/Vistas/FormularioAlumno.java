@@ -13,9 +13,9 @@ import laboratoriotp4grupo4.Alumno;
  *
  * @author canes
  */
-public class FormularioAlumno extends javax.swing.JFrame {
-    private Alumnodata alum;
-    
+public class FormularioAlumno extends javax.swing.JInternalFrame{
+   protected static Alumnodata alum;
+   
     
     public FormularioAlumno() {
         initComponents();
@@ -43,7 +43,11 @@ public class FormularioAlumno extends javax.swing.JFrame {
         jfNuevoFA = new javax.swing.JButton();
         jfGuardar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setTitle("FAlumnos");
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -162,7 +166,7 @@ public class FormularioAlumno extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseClicked
 
     private void jfSalirFAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfSalirFAActionPerformed
-        // TODO add your handling code here:
+  dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jfSalirFAActionPerformed
 
     private void jfLegajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfLegajoActionPerformed
@@ -181,6 +185,7 @@ public class FormularioAlumno extends javax.swing.JFrame {
 
     private void jfGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfGuardarActionPerformed
  Alumno al= new Alumno();
+ 
         if (jfNombre.getText().length()==0){
              JOptionPane.showMessageDialog(this,"Debe ingresar un Nombre ");
             jfNombre.requestFocus();   
@@ -193,6 +198,7 @@ public class FormularioAlumno extends javax.swing.JFrame {
        al.setNombre(jfNombre.getText());
        al.setApellido(jfApellido.getText());
         alum.guardarAlumno(al);
+      
       }
       catch(Exception e){
               
@@ -224,39 +230,7 @@ public class FormularioAlumno extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jfLegajoFocusLost
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioAlumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormularioAlumno().setVisible(true);
-            }
-        });}
+   
            private void activarCampos() {
         
         jfLegajo.setEnabled(true);
@@ -288,6 +262,7 @@ public class FormularioAlumno extends javax.swing.JFrame {
     private javax.swing.JButton jfNuevoFA;
     private javax.swing.JButton jfSalirFA;
     // End of variables declaration//GEN-END:variables
+
 
 
 }

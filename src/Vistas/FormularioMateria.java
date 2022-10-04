@@ -6,14 +6,15 @@ import javax.swing.JOptionPane;
 import laboratoriotp4grupo4.Materia;
 
 
-public class FormularioMateria extends javax.swing.JFrame {
-private MateriaData materiaD;
+public class FormularioMateria extends javax.swing.JInternalFrame {
+protected static  MateriaData materiaD ;
     
             
     public FormularioMateria() {
+     materiaD =new MateriaData();
         initComponents();
        desactivarCampos();
-        materiaD =new MateriaData();
+       
     }
 
     
@@ -33,11 +34,15 @@ private MateriaData materiaD;
         jTMateria = new javax.swing.JTextField();
         jSAno = new javax.swing.JSpinner();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setTitle("FMaterias");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Formulario de materias");
+        jLabel1.setText("Formulario de Materias");
 
         jLabel2.setText("Codigo de materia :");
 
@@ -156,7 +161,7 @@ private MateriaData materiaD;
     }//GEN-LAST:event_jTCodigoActionPerformed
 
     private void jfSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfSalirActionPerformed
-        // TODO add your handling code here:
+           dispose();
     }//GEN-LAST:event_jfSalirActionPerformed
 
     private void jfNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfNuevoActionPerformed
@@ -168,15 +173,19 @@ private MateriaData materiaD;
 
     private void jfGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfGuardarActionPerformed
        Materia m= new Materia();
+       
           if (jTMateria.getText().length()==0){
              JOptionPane.showMessageDialog(this,"Debe ingresar un nombre de la materia");
             jTMateria.requestFocus();
     } else{                                  
-      try {      
+      try {   
        m.setIdMateria(Integer.parseInt(jTCodigo.getText()));
        m.setAno((Integer)jSAno.getValue());
        m.setNombre(jTMateria.getText());
         materiaD.guardarMateria(m);
+        
+        
+        
       }
       catch(Exception e){
               
@@ -185,7 +194,7 @@ private MateriaData materiaD;
               }
       
       limpiarCampos();
-   
+
           }
        
     }//GEN-LAST:event_jfGuardarActionPerformed
@@ -216,41 +225,8 @@ private MateriaData materiaD;
 
     }//GEN-LAST:event_jTMateriaFocusLost
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioMateria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormularioMateria().setVisible(true);
-            }
-        });
-    }
+    
+   
     
     private void activarCampos() {
         
